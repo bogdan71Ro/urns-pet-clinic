@@ -42,7 +42,6 @@
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:bogdan71Ro/urns-pet-clinic.git</developerConnection>
-	  <tag>urns-pet-clinic-0.0.1</tag>
   </scm>
 
 </project>
