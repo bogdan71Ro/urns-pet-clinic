@@ -1,4 +1,4 @@
-package org.uranussoftware.petclinic.org.uranussoftware.petclinic.controllers;
+package org.uranussoftware.petclinic.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
