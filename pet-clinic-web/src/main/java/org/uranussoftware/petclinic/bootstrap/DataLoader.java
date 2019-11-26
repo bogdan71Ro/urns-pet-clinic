@@ -6,8 +6,6 @@ import org.uranussoftware.petclinic.model.Owner;
 import org.uranussoftware.petclinic.model.Vet;
 import org.uranussoftware.petclinic.services.OwnerService;
 import org.uranussoftware.petclinic.services.VetService;
-import org.uranussoftware.petclinic.services.map.OwnerServiceMap;
-import org.uranussoftware.petclinic.services.map.VetServiceMap;
 
 /**
  *  Bootstrap class
@@ -19,10 +17,10 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
-
+    // Spring 4.X required an @Autowired here to inject fields
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
