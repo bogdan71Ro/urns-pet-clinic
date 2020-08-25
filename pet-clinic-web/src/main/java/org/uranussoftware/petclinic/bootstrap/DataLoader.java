@@ -3,10 +3,7 @@ package org.uranussoftware.petclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.uranussoftware.petclinic.model.*;
-import org.uranussoftware.petclinic.services.OwnerService;
-import org.uranussoftware.petclinic.services.PetTypeService;
-import org.uranussoftware.petclinic.services.SpecialityService;
-import org.uranussoftware.petclinic.services.VetService;
+import org.uranussoftware.petclinic.services.*;
 
 import java.time.LocalDate;
 
@@ -21,14 +18,16 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     // Spring 4.X required an @Autowired here to inject fields
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      SpecialityService specialityService) {
+                      SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -94,6 +93,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(fionasCat);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
+
+        visitService.save(catVisit);
 
         System.out.println("OWNERS: loaded.");
 
