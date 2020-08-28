@@ -1,0 +1,5 @@
+org\uranussoftware\petclinic\bootstrap\DataLoader.class
+org\uranussoftware\petclinic\controllers\IndexController.class
+org\uranussoftware\petclinic\UrnsPetClinicApplication.class
+org\uranussoftware\petclinic\controllers\OwnerController.class
+org\uranussoftware\petclinic\controllers\VetController.class
